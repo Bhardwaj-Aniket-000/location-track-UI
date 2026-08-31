@@ -1,7 +1,8 @@
 import { io } from "socket.io-client";
+import { SOCKET_URL } from "../config";
 
-export function createSocket(url) {
-  return io(url || undefined, {
+export function createSocket() {
+  return io(SOCKET_URL || undefined, {
     transports: ["polling", "websocket"],
     reconnection: true,
     reconnectionAttempts: 10,
